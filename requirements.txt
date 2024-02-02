@@ -5,3 +5,4 @@ folium
 streamlit
 scikit-learn
 streamlit_folium
+xgboost
