@@ -4,5 +4,4 @@ pandas
 folium
 streamlit
 scikit-learn
-pickle
 streamlit_folium
