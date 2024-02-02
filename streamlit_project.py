@@ -43,16 +43,16 @@ if uploaded_file1 is not None:
         park = pd.read_csv(uploaded_file4)
         illigal = pd.read_csv(uploaded_file5)
         
-
+        cctv=uploaded_file2
         cctv['정보'] = 'cctv'
         cctv = cctv[['위도','경도','정보']]
-
+        park = uploaded_file3
         park['정보']='공영주차장'
         park = park[['위도','경도','정보']]
-
+        light = uploaded_file4
         light['정보']= '가로등'
         light = light[['위도','경도','정보']]
-
+        illigal = uploaded_file5
         illigal['정보'] = '단속'
         illigal = illigal[['위도','경도','정보']]
     else :
@@ -102,9 +102,12 @@ if uploaded_file1 is not None:
         result.columns = ['변화CCTV_예측','원본CCTV_예측','원본']
         result['예측값차이_절댓값'] = np.abs(result['원본']-result['원본CCTV_예측'])
         result['예측값간차이'] = result['변화CCTV_예측']-result['원본CCTV_예측']
-        
-        max_eff_cluster = result.sort_values(by='예측값차이_절댓값').index[0]
-        effect_ = result['예측값간차이'][max_eff_cluster]
+        result['예측값간차이비'] = (result['변화CCTV_예측']/result['원본CCTV_예측'])*100
+        result = result.sort_values(by='예측값차이_절댓값')
+        result = result[result['원본']*0.2>=(result['예측값차이_절댓값'])]
+        result = result.sort_values(by='예측값간차이비',ascending=False)
+        max_eff_cluster = result.index[0]
+        effect_ = result['예측값간차이비'][max_eff_cluster]
         
         tab1, tab2, tab3= st.tabs(['예측 결과' , '클러스터 위치 지도' , '기타 정보'])
 
@@ -141,4 +144,3 @@ if uploaded_file1 is not None:
             agu_df_insight['단속수준'] = pd.cut(agu_df['단속'],bins=bins,labels=labels)
             st.write("불법 주정차 단속수준 분류 데이터프레임")
             st.dataframe(agu_df_insight.groupby(by='단속수준').mean())
-        
