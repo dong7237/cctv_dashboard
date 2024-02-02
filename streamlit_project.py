@@ -1,6 +1,3 @@
-
-!pip install matplotlib,numpy,pandas,folium,streamlit,sklearn,pickle,streamlit_folium
-# 필요한 라이브러리 임포트
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
