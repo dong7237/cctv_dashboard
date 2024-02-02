@@ -3,6 +3,6 @@ numpy
 pandas
 folium
 streamlit
-sklearn
+scikit-learn
 pickle
 streamlit_folium
