@@ -114,7 +114,7 @@ if uploaded_file1 is not None:
         with tab1:
             st.header("예측 결과")
             st.write(f"설치 시 가장 큰 효과를 볼 수 있는 클러스터 값 : {max_eff_cluster}")
-            st.write(f"설치 효과 : {effect_}")
+            st.write(f'설치 효과 : ',effect_,'%')
             st.write(f"클러스터 당 CCTV 추가설치 대수 : {modify_cctv_values}")
 
         with tab2:
