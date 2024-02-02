@@ -43,16 +43,16 @@ if uploaded_file1 is not None:
         park = pd.read_csv(uploaded_file4)
         illigal = pd.read_csv(uploaded_file5)
         
-        cctv=uploaded_file2
+
         cctv['정보'] = 'cctv'
         cctv = cctv[['위도','경도','정보']]
-        park = uploaded_file3
+
         park['정보']='공영주차장'
         park = park[['위도','경도','정보']]
-        light = uploaded_file4
+
         light['정보']= '가로등'
         light = light[['위도','경도','정보']]
-        illigal = uploaded_file5
+
         illigal['정보'] = '단속'
         illigal = illigal[['위도','경도','정보']]
     else :
