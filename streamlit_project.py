@@ -58,10 +58,6 @@ if uploaded_file1 is not None:
     else :
         st.error('csv파일로 업로드하세요')
 
-    else :
-        st.error('csv파일로 업로드하세요')
-
-
     scores = 1.2
     #mae 모델 오차
     if st.button("예측 실행"):
