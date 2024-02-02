@@ -1,1 +1,8 @@
-matplotlib,numpy,pandas,folium,streamlit,sklearn,pickle,streamlit_folium
+matplotlib
+numpy
+pandas
+folium
+streamlit
+sklearn
+pickle
+streamlit_folium
